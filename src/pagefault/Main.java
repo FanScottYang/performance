@@ -1,4 +1,4 @@
-package performance;
+package pagefault;
 
 //分页中断
 public class Main {
