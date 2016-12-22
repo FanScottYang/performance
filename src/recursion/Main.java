@@ -8,17 +8,22 @@ import java.util.Stack;
 public class Main {
     public static void main(String[] args) {
         long startTime = System.currentTimeMillis();
-        System.out.println(calculate1(35));
+        System.out.println(calculate1(10));
         long endTime = System.currentTimeMillis();
         System.out.println("Total time usage: " + (endTime - startTime));
 
         startTime = System.currentTimeMillis();
-        System.out.println(calculate2(35));
+        System.out.println(calculate2(10));
         endTime = System.currentTimeMillis();
         System.out.println("Total time usage: " + (endTime - startTime));
 
         startTime = System.currentTimeMillis();
-        System.out.println(calculate3(35));
+        System.out.println(calculate3(90));
+        endTime = System.currentTimeMillis();
+        System.out.println("Total time usage: " + (endTime - startTime));
+
+        startTime = System.currentTimeMillis();
+        System.out.println(calculate4(90));
         endTime = System.currentTimeMillis();
         System.out.println("Total time usage: " + (endTime - startTime));
     }
@@ -65,8 +70,8 @@ public class Main {
     }
 
     //用循环消除尾递归和单向递归
-    private static int calculate3(int a) {
-        int f1, f2, f3 = 0;
+    private static long calculate3(int a) {
+        long f1, f2, f3 = 0;
         if (a == 1 || a == 2) {
             return 1;
         }
@@ -81,7 +86,8 @@ public class Main {
     }
 
     //大问题由相同的小问题组成(数学归纳法), open -> closed
-    private static int calculate4(int a) {
-        return 0;
+    private static long calculate4(int a) {
+
+        return (long) (1.0 / Math.pow(5.0, 0.5) * (Math.pow((1 + Math.pow(5.0, 0.5)) / 2.0, a) - Math.pow((1 - Math.pow(5.0, 0.5)) / 2.0, a)));
     }
 }
